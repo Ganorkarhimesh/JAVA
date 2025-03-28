@@ -1,0 +1,40 @@
+
+public class OnlineShoppingPortal{
+    void checkout(double cartvalue)
+    {
+        double discountedAmount;
+        double discount;
+        if(cartvalue>1000)
+        {
+            discount=cartvalue*0.30;
+        }
+        else{
+            discount=cartvalue*0.20;
+        }
+        discountedAmount= cartvalue - discount;
+        System.out.println("Discounted amount is: "+discountedAmount);
+    }
+    void checkout(double cartvalue,double amount, String promocode)
+    {
+        
+        double discount=0;
+        double discountedcartvalue=cartvalue;
+        if(cartvalue<500)
+        {
+            amount= discountedcartvalue - 10;
+        }
+        else if(cartvalue>500 &&  promocode.equalsIgnoreCase ("GET10") );
+        {
+            discount=cartvalue*0.10;
+        }
+        double discountedAmount= cartvalue-discount;
+        System.out.println("Discounted amount is: "+discountedAmount);
+    }
+}
+class Q1 {
+    public static void main(String[] args) {
+        OnlineShoppingPortal obj = new OnlineShoppingPortal();
+        obj.checkout(5000);
+        obj.checkout(500,0, "GET10");
+    }
+}    
